@@ -1,0 +1,2 @@
+Quando criamos uma variável, ela é alocada na memória stack (pilha). Mas, depois de alocarmos, ela irá para a memória heap
+

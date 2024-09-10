@@ -58,11 +58,84 @@ void destroy_list(t_list* list) {
 void print_list(t_list* list){
 	t_node *node_aux;
 	node_aux = list->head;
-	while (node_aux != NULL)
+	int i = 0;
+	while (i < list->size)
 	{
 		printf("%d ", node_aux->item);
 		node_aux = node_aux->next;
+		i++;
 	}
+	printf("\n");
+}
+
+t_node* search(t_list* list, int item){
+	t_node* node_aux = list->head;
+	while (node_aux != NULL)
+	{
+		if (node_aux->item == item)
+		{
+			return node_aux;
+		}
+		node_aux = node_aux->next;
+	}
+	return NULL;
+}
+
+void remove_node(t_list* list, t_node* node_to_be_removed){
+	t_node* node_aux = list->head;
+	if (node_aux == node_to_be_removed)
+	{
+		list->head = node_aux->next;
+		list->size--;
+		if (list->tail == node_to_be_removed)
+		{
+			list->tail = NULL;
+		}
+		
+	}else if (list->tail == node_to_be_removed)
+	{
+		while (node_aux->next != node_to_be_removed)
+		{
+			node_aux = node_aux->next;
+		}
+		free(list->tail);
+		node_aux->next = NULL;
+		list->tail = node_aux;
+		list->size--;
+	} else
+	{
+		int i = 0;
+		while (i < list->size)
+		{
+			if (node_aux->next == node_to_be_removed)
+			{
+				i = list->size;
+				node_aux->next = node_to_be_removed->next;
+				free(node_to_be_removed);
+				list->size--;
+			}
+			
+			node_aux = node_aux->next;
+			i++;
+		}
+		
+	}
+}
+
+void reverse_node(t_list* list){
+	t_node* prev = NULL;
+	t_node* current = list->head;
+	t_node* next = NULL;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	list->head = prev;
+
 }
 
 int main(int argc, char **argv)
@@ -73,7 +146,15 @@ int main(int argc, char **argv)
 	append(list, 3);
 	append(list, 5);
 	append(list, 9);
+
+	t_node* node_to_remove = search(list, 2);
 	
+	remove_node(list, node_to_remove);
+
+	print_list(list);
+
+	reverse_node(list);
+
 	print_list(list);
 	
 	destroy_list(list);
