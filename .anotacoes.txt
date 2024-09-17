@@ -1,2 +1,8 @@
+dontpad.com/esddads
+
 Quando criamos uma variável, ela é alocada na memória stack (pilha). Mas, depois de alocarmos, ela irá para a memória heap
 
+Lista x Array
+Vantagens array: Acesso por índice, busca binária mais
+Vantagens Lista Encadeada: Tamanho ilimitado de forma mais natural (sem precisar de realloc), inserir no meio 
+Lista duplamente Encadeada: Mais fácil para remover, mas precisamos cuidar de mais uma variável.
