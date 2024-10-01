@@ -6,3 +6,9 @@ Lista x Array
 Vantagens array: Acesso por índice, busca binária mais
 Vantagens Lista Encadeada: Tamanho ilimitado de forma mais natural (sem precisar de realloc), inserir no meio 
 Lista duplamente Encadeada: Mais fácil para remover, mas precisamos cuidar de mais uma variável.
+
+
+A Pilha é um TAD que tem por característica "empilhar" os dados. O primeiro dado a entrar, é o último a sair. 
+Isso é útil quando se precisa armazenar as operações ou dados anteriores aos que estão sendo utilizados.
+
+
