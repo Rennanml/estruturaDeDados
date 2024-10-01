@@ -50,4 +50,12 @@ void clear(t_queue *q){
     q->end = q->begin;
     q->size = 0;
 }
-void print(t_queue *q);
+void print(t_queue *q){
+    int i = q->begin;
+    for (int count = 0; count < q->size; count++)
+    {
+        printf("%d\t", q->items[i]);
+        i = (i+1) % q->max;
+    }
+    
+}
