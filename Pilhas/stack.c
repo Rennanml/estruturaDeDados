@@ -70,3 +70,26 @@ void print(t_stack *p){
     }
     printf("\n");
 }
+
+void invert(t_stack *p){
+    t_stack* aux1 = create_stack(p->max);
+    t_stack* aux2 = create_stack(p->max);
+
+    while (p->top_index >= 0)
+    {
+        aux1->items[++aux1->top_index] = p->items[p->top_index--];
+    }
+
+    while (aux1->top_index >= 0)
+    {
+        aux2->items[++aux2->top_index] = aux1->items[aux1->top_index--];
+    }
+
+    while (aux2->top_index >= 0)
+    {
+        p->items[++p->top_index] = aux2->items[aux2->top_index--];
+    }
+    
+    free(aux1);
+    free(aux2);
+}

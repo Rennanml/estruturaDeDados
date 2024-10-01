@@ -19,6 +19,7 @@ int main(int argc, char const *argv[])
     top(stack, &x);
     printf("Stack top -> %d\n", x);
 
+    invert(stack);
     print(stack);
     destroy(stack);
     return 0;

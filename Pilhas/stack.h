@@ -21,5 +21,6 @@ int pop(t_stack *p, t_elem *x);
 int top(t_stack *p, t_elem *x);
 void clear(t_stack *p);
 void print(t_stack *p);
+void invert(t_stack* p);
 
 #endif /* STACK_H */
