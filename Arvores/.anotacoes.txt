@@ -1,0 +1,45 @@
+Folhas -> último nó. Não tem descendente.
+Nível -> a cada descendência, aumenta um nível. Começando do nó primordial como 1.
+Altura -> Nível máximo da árvore 
+Grau da árvore -> maior número de descendentes de um nó
+Árvore cheia -> todos os nós (exceto as folhas) tem o mesmo Grau
+Subárvore -> recorte de uma árvore
+
+
+ABB (árvore binária de busca):
+ - Árvore de nível 2
+ - O número descendente à esquerda tem que ser menor, e o da direita maior
+
+
+Percurso de árvore: 
+1. pré-ordem
+
+ void pre_order(t_node* no){
+    if(no != NULL){
+        printf("%d\t", no->item);
+        pre_order(no->left);
+        pre_order(no->right);
+    }
+ }
+
+
+2. em ordem
+
+void in_order(t_node* no){
+    if(no != NULL){
+        in_order(no->left);
+        printf("%d\t", no->item);
+        in_order(no->right);
+    }
+ }
+
+
+3. pós-ordem 
+
+void pos_order(t_node* no){
+    if(no != NULL){
+        pos_order(no->left);
+        pos_order(no->right);
+        printf("%d\t", no->item);
+    }
+ }
